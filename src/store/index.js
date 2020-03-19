@@ -80,7 +80,6 @@ export default new Vuex.Store({
     },
     SET_TASK_TO_STATE: (state, task) => {
       task.id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)
-      console.log(task, 'task');
       state.todoList.push(task)
     },
     DELETE_TASK_IN_STATE: (state, id) =>  {
@@ -91,6 +90,7 @@ export default new Vuex.Store({
 },
   actions: {
     FETCH_POSTS(ctx, limit) {
+      console.log(limit, 'limit')
       fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}`)
         .then(response => response.json())
         .then(response => {
@@ -102,17 +102,14 @@ export default new Vuex.Store({
 
     },
     CREATE_TASK(ctx, task) {
-      console.log(task, 'task')
       ctx.commit('SET_TASK_TO_STATE', task)
     },
     DELETE_TASK(ctx, id) {
       ctx.commit('DELETE_TASK_IN_STATE', id)
-      console.log(id, 'id task')
     }
   },
   getters: {
     getCard: state => id => {
-      console.log(state.services.find(el => el.id === parseInt(id)))
       return state.services.find(el => el.id === parseInt(id))
     }
   },
