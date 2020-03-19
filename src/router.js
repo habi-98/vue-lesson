@@ -10,7 +10,7 @@ Vue.use(Router)
 export default new Router({
     mode: 'history',
     routes: [
-        {path: '/main', component: Main}, 
+        {path: '/', component: Main}, 
         {path: '/services', component: Services},
         {path: '/todo' , component: TodoList},
 
