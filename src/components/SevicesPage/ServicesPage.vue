@@ -1,0 +1,81 @@
+<template>
+<div>
+    <div class="wrap-content">
+        <h1>Page:{{card.title }}</h1>
+        <button @click='pushHandler'> click me</button>
+        <button @click="isOpen">Open modal</button>
+    </div>
+    <Modal :isOpen="isOpen" :show="show" title="service">
+        <h1>{{card.title }}</h1>
+        <p>{{card.description }}</p>
+    </Modal>
+    <Posts></Posts>
+</div>
+
+    <!-- <router-link tag="a" to="/service">click</router-link> -->
+</template>
+
+
+<script>
+import Modal from '../../components/UI/Modal'
+import Posts from '../../components/Posts/Posts'
+import {mapGetters, mapMutations} from 'vuex'
+
+    export default {
+        name: 'ServicesPage',
+        props: ['clickHandler'],
+      methods: {
+          pushHandler() {
+              this.$router.push('/services')
+              this.clickHandler(this.card.id)
+              
+          },
+        ...mapGetters(['getCard']),
+        ...mapMutations(['setVisited']),
+        isOpen() {
+            this.show = !this.show
+        },
+        loadCard() {
+            this.card = this.getCard()(this.$route.params.id)
+        }
+      },
+        data() {
+        return {
+            show: false,
+            card: {}
+        }
+    },
+    created: function() {
+        // console.log(this)
+        // if(this.visited) {
+        //     console.log(typeof this.visited)
+        //  if (!this.visited.includes(this.card.id)) {
+        //         this.visited.push(this.card.id)
+        //         localStorage.setItem('visited', JSON.stringify(this.visited))
+        //     } 
+        // } else {
+        //     console.log(this.visited, 'block else')
+        //     this.visited.push(this.card.id)
+        //     localStorage.setItem('visited', JSON.stringify(this.visited))
+        // } 
+  
+    },
+    components: {
+        Modal,
+        Posts
+    },
+    mounted() {
+        this.loadCard()
+        this.setVisited(this.$route.params.id)
+    }
+    }
+</script>
+
+<style>
+.wrap-content {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+</style>

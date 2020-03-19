@@ -1,0 +1,55 @@
+@import './variables.scss';
+.backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal {
+    position: fixed;
+    z-index: 500;
+    background-color: white;
+    width: 600px;
+    border: 1px solid $color-space-gray;
+    box-shadow: 1px 1px 1px black;
+    left: 50%;
+    top: 30%;
+    margin-left: -300px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+        &-window__header {
+            border-bottom: 1px solid $color-space-gray;
+            padding: 0 10px;
+            font-size: 16;
+            margin: 0;
+        }
+        &-window__header h1 {
+            padding: 10px 0;
+            margin: 0;
+        }
+        &-window__footer {
+            border-top: 1px solid $color-space-gray;
+            padding: 10px 10px;
+        }
+}
+.content {
+    padding: 20px 10px;
+}
+.footer-btn {
+    padding: 7px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    color: $color-white;
+}
+.footer-btn-ok {
+    background: $bg-blue;
+    border: 1px solid $bg-blue;
+}
+.footer-btn-close {
+    margin-left: 10px;
+    background: $bg-grey;
+    border: 1px solid $bg-grey;
+}
