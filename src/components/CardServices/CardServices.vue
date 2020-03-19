@@ -1,5 +1,5 @@
 <template>
-    <router-link tag="a"  :to="{name: 'services', params: {id: card.id, clickHandler, isOpen}}" class="item-wrap"  :class="{'visited': card.active}">
+    <router-link tag="a"  :to="{name: 'services', params: {id: card.id, isOpen}}" class="item-wrap"  :class="{'visited': card.active}">
         <div class="item">
             <div class="item-title">
                 <img class="item-img" :src="require('../../assets/' + card.img)" :alt="card.img">
@@ -20,9 +20,7 @@ export default {
         card: {
             type: Object
         },
-        clickHandler: {
-            type: Function
-        },
+
         isOpen: {
             type: Function
         }

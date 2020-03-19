@@ -23,11 +23,9 @@ import {mapGetters, mapMutations} from 'vuex'
 
     export default {
         name: 'ServicesPage',
-        props: ['clickHandler'],
       methods: {
           pushHandler() {
               this.$router.push('/services')
-              this.clickHandler(this.card.id)
               
           },
         ...mapGetters(['getCard']),
