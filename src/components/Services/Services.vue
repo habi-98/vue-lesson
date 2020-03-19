@@ -36,6 +36,7 @@
 		</div>
 		<Modal :show="show" title="Header" :isOpen='isOpen'>
 			<input type="text">
+			<h1>hello</h1>
 		</Modal>
 </div>
 </template>
@@ -58,11 +59,6 @@ export default {
 		...mapState(['services'])
 	},
 	methods: {
-		// clickHandler: function(id) {
-		// 	console.log(id, 'id card')
-		// 	let index =	this.services.findIndex(item => item.id === id)
-		// 	Vue.set(this.services[index], 'active', true)
-		// },
 		isOpen() {
 			this.show = !this.show
 		}

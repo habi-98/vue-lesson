@@ -30,24 +30,6 @@ export default {
     },
     methods: {
         ...mapActions(['FETCH_POSTS'])
-        // fetchPosts: async function(limit) {
-        //     try {
-        //         const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}`)
-
-        //         const data = await response.json()
-
-        //         console.log(data, 'data posts')
-
-        //         this.posts = data
-
-        //         if (!response.ok) {
-        //             throw new Error(data.message || 'Чот-то пошло не так')
-        //         }
-
-        //     } catch(e) {
-        //         this.setError = e.massage
-        //     }
-        // }
     },
     mounted(){
         this.FETCH_POSTS()

@@ -20,17 +20,10 @@ export default {
         card: {
             type: Object
         },
-
         isOpen: {
             type: Function
         }
         
-    },
-    data() {
-        return {
-            // isVisited: JSON.parse(localStorage.getItem('visited')) ? 
-			// JSON.parse(localStorage.getItem('visited')): []
-        }
     }
 }
 </script>
